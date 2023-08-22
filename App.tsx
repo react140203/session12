@@ -4,6 +4,7 @@ import { StyleSheet, Text, View } from "react-native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import HomeScreen from "./screens/HomeScreen";
 import DrugListScreen from "./screens/DrugListScreen";
+import DrugStoreScreen from "./screens/DrugStoreScreen";
 
 const Stack = createNativeStackNavigator();
 
@@ -12,11 +13,8 @@ export default function App() {
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen name="Home" component={HomeScreen} />
-        <Stack.Screen
-          name="DrugList"
-          component={DrugListScreen}
-          options={{ header: () => <Text>Salam</Text> }}
-        />
+        <Stack.Screen name="DrugList" component={DrugListScreen} />
+        <Stack.Screen name="DrugStore" component={DrugStoreScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
