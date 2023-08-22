@@ -2,9 +2,12 @@ import { View, StyleSheet } from "react-native";
 import React, { useEffect, useState } from "react";
 import { supabase } from "../api";
 import MapView, { Marker } from "react-native-maps";
+import * as Location from "expo-location";
 
 export default function DrugStoreScreen() {
   const [DrugStores, setDrugStores] = useState<any[]>([]);
+  const [location, setLocation] = useState<any>(null);
+
   useEffect(() => {
     (async () => {
       const { data, error } = await supabase
@@ -13,6 +16,19 @@ export default function DrugStoreScreen() {
         .limit(10);
       setDrugStores(data);
       // console.log(data);
+    })();
+  }, []);
+
+  useEffect(() => {
+    (async () => {
+      let { status } = await Location.requestForegroundPermissionsAsync();
+      if (status !== "granted") {
+        return;
+      }
+
+      let location = await Location.getCurrentPositionAsync({});
+      console.log("--->", location);
+      setLocation(location);
     })();
   }, []);
 
