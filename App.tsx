@@ -10,6 +10,7 @@ import DrugListScreen from "./screens/DrugListScreen";
 import DrugStoreScreen from "./screens/DrugStoreScreen";
 import DrugDetailScreen from "./screens/DrugDetailScreen";
 import { useCallback, useEffect } from "react";
+import DrugScanScreen from "./screens/DrugScanScreen";
 
 SplashScreen.preventAutoHideAsync();
 
@@ -37,6 +38,7 @@ export default function App() {
         <Stack.Screen name="DrugList" component={DrugListScreen} />
         <Stack.Screen name="DrugStore" component={DrugStoreScreen} />
         <Stack.Screen name="DrugDetail" component={DrugDetailScreen} />
+        <Stack.Screen name="DrugScan" component={DrugScanScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );

@@ -3,4 +3,5 @@ type RootStackParamList = {
   DrugList: undefined;
   DrugStore: undefined;
   DrugDetail: { id: number };
+  DrugScan: undefined;
 };
