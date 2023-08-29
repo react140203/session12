@@ -13,7 +13,10 @@ export default function DrugStoreScreen() {
       const { data, error } = await supabase
         .from("DrugStore")
         .select("*")
+        .not("latitude", "is", null)
+        .not("longitude", "is", null)
         .limit(10);
+
       setDrugStores(data);
       // console.log(data);
     })();
@@ -26,9 +29,14 @@ export default function DrugStoreScreen() {
         return;
       }
 
-      let location = await Location.getCurrentPositionAsync({});
-      console.log("--->", location);
-      setLocation(location);
+      try {
+        console.log("....");
+        let location = await Location.getCurrentPositionAsync();
+        console.log("--->", location);
+      } catch (e) {
+        console.log(e);
+      }
+      // setLocation(location);
     })();
   }, []);
 

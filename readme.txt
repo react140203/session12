@@ -8,3 +8,7 @@ npm install @react-navigation/native-stack
 
 Tab
 npm install @react-navigation/bottom-tabs
+
+
+
+expo - build -> apk! aab
