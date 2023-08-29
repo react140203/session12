@@ -57,9 +57,9 @@ export default function DrugStoreScreen() {
     );
     console.log(neshan);
 
-    // Linking.openURL(
-    //   `google.navigation:q=${location.latitude},${location.longitude}`
-    // );
+    Linking.openURL(
+      `google.navigation:q=${location.latitude},${location.longitude}`
+    );
 
     // Linking.openURL(
     //   `neshan:q=${location.latitude},${location.longitude}`
