@@ -1,8 +1,11 @@
 import { View, Text, StyleSheet, Button } from "react-native";
 import React, { useEffect, useState } from "react";
 import { BarCodeScanner } from "expo-barcode-scanner";
+import { supabase } from "../api";
+import type { NativeStackScreenProps } from "@react-navigation/native-stack";
+type Props = NativeStackScreenProps<RootStackParamList, "DrugScan">;
 
-export default function DrugScanScreen() {
+export default function DrugScanScreen({ navigation }: Props) {
   const [hasPermission, setHasPermission] = useState<boolean | null>(null);
   const [scanned, setScanned] = useState(false);
 
@@ -16,9 +19,17 @@ export default function DrugScanScreen() {
     getBarCodeScannerPermissions();
   }, []);
 
-  const handleBarCodeScanned = ({ type, data }: any) => {
+  const handleBarCodeScanned = async ({ type, data }: any) => {
     setScanned(true);
     alert(`Bar code with type ${type} and data ${data} has been scanned!`);
+    //gtn -> server api -> id -> goto DrugDetail {param: {id}}
+
+    //alias
+    const { data: xyz, error } = await supabase
+      .from("Drug")
+      .select("*")
+      .eq("gtin", data);
+    console.log(xyz);
   };
 
   return (
