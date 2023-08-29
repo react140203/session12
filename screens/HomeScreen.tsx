@@ -1,7 +1,10 @@
 import { View, Text, Button } from "react-native";
 import React from "react";
 
-export default function HomeScreen({ navigation }: any) {
+import type { NativeStackScreenProps } from "@react-navigation/native-stack";
+type Props = NativeStackScreenProps<RootStackParamList, "Home">;
+
+export default function HomeScreen({ navigation }: Props) {
   const gotoDrugList = () => {
     navigation.push("DrugList");
   };

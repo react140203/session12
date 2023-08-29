@@ -4,6 +4,8 @@ import { supabase } from "../api";
 import MapView, { Marker } from "react-native-maps";
 import * as Location from "expo-location";
 import * as Linking from "expo-linking";
+import type { NativeStackScreenProps } from "@react-navigation/native-stack";
+type Props = NativeStackScreenProps<RootStackParamList, "DrugStore">;
 
 function getLatLng(location: string) {
   const parts = location.replace("POINT(", "").replace(")", "").split(" ");
@@ -13,7 +15,7 @@ function getLatLng(location: string) {
   };
 }
 
-export default function DrugStoreScreen() {
+export default function DrugStoreScreen(props: Props) {
   const [DrugStores, setDrugStores] = useState<any[]>([]);
   const [location, setLocation] = useState<any>({
     latitude: 35.717633,

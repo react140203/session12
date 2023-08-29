@@ -11,8 +11,10 @@ import {
 } from "react-native";
 import React, { useEffect, useState } from "react";
 import { supabase } from "../api";
+import type { NativeStackScreenProps } from "@react-navigation/native-stack";
+type Props = NativeStackScreenProps<RootStackParamList, "DrugList">;
 
-export default function DrugListScreen({ navigation }: any) {
+export default function DrugListScreen({ navigation }: Props) {
   const [page, setPage] = useState(0);
   const [refreshing, setRefreshing] = useState(false);
   const [DrugList, setDrugList] = useState<any[]>([]);

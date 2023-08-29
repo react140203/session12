@@ -13,7 +13,7 @@ import { useCallback, useEffect } from "react";
 
 SplashScreen.preventAutoHideAsync();
 
-const Stack = createNativeStackNavigator();
+const Stack = createNativeStackNavigator<RootStackParamList>();
 
 I18nManager.allowRTL(true);
 I18nManager.forceRTL(true);
