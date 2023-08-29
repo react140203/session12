@@ -7,6 +7,7 @@ import {
   StatusBar,
   SafeAreaView,
   RefreshControl,
+  TouchableHighlight,
 } from "react-native";
 import React, { useEffect, useState } from "react";
 import { supabase } from "../api";
@@ -44,7 +45,16 @@ export default function DrugListScreen({ navigation }: any) {
         <FlatList
           data={DrugList}
           renderItem={({ item }) => (
-            <Text style={styles.item}>{item.drugGenericFaName}</Text>
+            <TouchableHighlight
+              onPress={() =>
+                navigation.navigate({
+                  name: "DrugDetail",
+                  params: { id: item.id },
+                })
+              }
+            >
+              <Text style={styles.item}>{item.drugGenericFaName}</Text>
+            </TouchableHighlight>
           )}
           keyExtractor={(item, index) => item.id.toString()}
           onEndReached={loadNext}
