@@ -83,6 +83,8 @@ const styles = StyleSheet.create({
     padding: 20,
     marginVertical: 8,
     marginHorizontal: 16,
+    fontFamily: "IRANYekan",
+    fontSize: 20,
   },
   title: {
     fontSize: 32,
