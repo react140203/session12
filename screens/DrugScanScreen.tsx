@@ -24,12 +24,23 @@ export default function DrugScanScreen({ navigation }: Props) {
     alert(`Bar code with type ${type} and data ${data} has been scanned!`);
     //gtn -> server api -> id -> goto DrugDetail {param: {id}}
 
+    const result = await supabase.from("Drug").select("*").eq("gtin", data);
+    console.log(result.data);
+
     //alias
-    const { data: xyz, error } = await supabase
-      .from("Drug")
-      .select("*")
-      .eq("gtin", data);
-    console.log(xyz);
+    // const { data: xyz, error } = await supabase
+    //   .from("Drug")
+    //   .select("*")
+    //   .eq("gtin", data);
+    // console.log(xyz);
+
+    // ((gtin) => {
+    //   const { data, error } = await supabase
+    //   .from("Drug")
+    //   .select("*")
+    //   .eq("gtin", gtin);
+    // console.log(xyz);
+    // })(data);
   };
 
   return (
