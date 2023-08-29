@@ -1,6 +1,6 @@
 import { NavigationContainer } from "@react-navigation/native";
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View } from "react-native";
+import { I18nManager, StyleSheet, Text, View } from "react-native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import HomeScreen from "./screens/HomeScreen";
 import DrugListScreen from "./screens/DrugListScreen";
@@ -9,6 +9,8 @@ import DrugDetailScreen from "./screens/DrugDetailScreen";
 
 const Stack = createNativeStackNavigator();
 
+I18nManager.allowRTL(true);
+I18nManager.forceRTL(true);
 export default function App() {
   return (
     <NavigationContainer>
