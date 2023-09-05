@@ -21,7 +21,8 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "ir.fad.drug.reminder"
     },
     "web": {
       "favicon": "./assets/favicon.png"
